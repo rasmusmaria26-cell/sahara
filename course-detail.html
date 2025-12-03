@@ -51,24 +51,24 @@
         <section class="detail-hero" data-aos="fade-up">
             <div class="container hero-layout">
                 <div class="hero-left">
-                    <div class="breadcrumbs" data-aos="fade-down">
-                        Home > Blogs > Master > UI/UX Designing
+                    <div class="breadcrumbs" data-aos="fade-down" id="courseBreadcrumbs">
+                        Home > Courses
                     </div>
-                    <h1>Online Masters of UI/UX Designing</h1>
-                    <span class="institute-name">Institute Bangalore University</span>
+                    <h1 id="courseTitle">Loading Course...</h1>
+                    <span class="institute-name" id="courseInstitute">Loading Institute...</span>
 
                     <div class="course-badges">
                         <div class="badge-box">
                             <span class="badge-label">Start Date</span>
-                            <span class="badge-value">20 Oct 2024</span>
+                            <span class="badge-value" id="courseStartDate">-</span>
                         </div>
                         <div class="badge-box">
                             <span class="badge-label">Duration</span>
-                            <span class="badge-value">2 Years</span>
+                            <span class="badge-value" id="courseDuration">-</span>
                         </div>
                         <div class="badge-box">
                             <span class="badge-label">Enrolled</span>
-                            <span class="badge-value">150+</span>
+                            <span class="badge-value" id="courseEnrolled">-</span>
                         </div>
                     </div>
 
@@ -78,8 +78,7 @@
                     </div>
                 </div>
                 <div class="hero-right">
-                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="University Campus">
+                    <img src="" id="courseImage" alt="Course Image">
                 </div>
             </div>
         </section>
@@ -90,10 +89,10 @@
                 <div class="tabs-list">
                     <div class="tab-item active">Program Overview</div>
                     <div class="tab-item">Eligibility Criteria</div>
-                    <div class="tab-item">Syllabus</div>
-                    <div class="tab-item">Faculty</div>
-                    <div class="tab-item">Fee Details</div>
-                    <div class="tab-item">Reviews</div>
+                    <div class="tab-item">Program Syllabus</div>
+                    <div class="tab-item">Know the Faculty</div>
+                    <div class="tab-item">Program Fee Details</div>
+                    <div class="tab-item">How to Apply</div>
                 </div>
             </div>
         </div>
@@ -103,15 +102,10 @@
             <div class="container overview-layout">
                 <div class="overview-text">
                     <h2 class="section-heading">Program <span>Overview</span></h2>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                        classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-                        Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                        words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
-                        classical literature, discovered the undoubtable source.</p>
+                    <p id="courseOverview">Loading overview...</p>
 
                     <h2 class="section-heading" style="margin-top: 40px;">Eligibility <span>Criteria</span></h2>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                        classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                    <p id="courseEligibility">Loading eligibility...</p>
                 </div>
                 <div class="overview-sidebar">
                     <!-- Optional Sidebar content could go here -->
@@ -163,18 +157,20 @@
         <!-- Fee Section -->
         <section class="fee-section" data-aos="fade-up">
             <div class="container">
-                <h2>Program Fee Details</h2>
-                <p>Base Program</p>
+                <h2 style="margin-bottom: 10px;">Program Fee Details</h2>
+                <p style="font-size: 18px; margin-bottom: 20px;">Base Program</p>
                 <div class="fee-price">Starting at INR 15,525/month</div>
-                <p style="opacity: 0.8; margin-bottom: 30px;">Total Fee: INR 4,50,000*</p>
+                <p style="opacity: 0.8; margin-bottom: 40px;">Total Fee: INR 4,50,000*</p>
 
                 <div class="fee-features">
-                    <div class="fee-feature">✅ Best-in-class curriculum</div>
-                    <div class="fee-feature">✅ Earn MBA Degree</div>
-                    <div class="fee-feature">✅ Learn from Experts</div>
+                    <div class="fee-feature">✅ Best-in-class curriculum with Gen AI modules</div>
+                    <div class="fee-feature">✅ Earn MBA Degree from Liverpool Business School</div>
+                    <div class="fee-feature">✅ Interact with global faculty & industry experts</div>
                 </div>
 
-                <button class="btn btn-primary">Apply Now</button>
+                <button class="btn"
+                    style="background: #F49E25; color: white; padding: 12px 40px; border-radius: 30px; font-weight: 600;">Apply
+                    Now</button>
             </div>
         </section>
 
@@ -182,29 +178,36 @@
         <section class="content-section" data-aos="fade-up">
             <div class="container">
                 <h2 class="section-heading" style="text-align: center;">How to <span>Apply</span></h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #666;">Follow these simple steps
-                    to start your journey with us.</p>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #666; margin-bottom: 40px;">
+                    Here are some outlines of passage of Lorem Ipsum available, but the majority have suffered
+                    alteration in some form, by injected humour, or randomised words which don't look even slightly
+                    believable.
+                </p>
+                <h3 style="text-align: center; color: #F49E25; margin-bottom: 30px;">Eligibility</h3>
+                <p style="text-align: center; color: #F49E25; font-size: 14px; margin-bottom: 50px;">The course is open
+                    to all graduates with a Bachelor's Degree from a recognized university with 50% marks.</p>
 
                 <div class="steps-grid">
                     <div class="step-card">
                         <span class="step-header">Step : 1</span>
-                        <h4>Complete Application</h4>
-                        <p style="font-size: 13px; color: #666;">Fill out the online application form with your personal
-                            and academic details.</p>
+                        <h4 style="color: #A91D25; margin-bottom: 10px;">Complete Application</h4>
+                        <p style="font-size: 13px; color: #666;">There are many variations of passages of Lorem Ipsum
+                            available.</p>
                         <span class="step-number">1</span>
                     </div>
                     <div class="step-card">
                         <span class="step-header">Step : 2</span>
-                        <h4>Receive Offer Letter</h4>
-                        <p style="font-size: 13px; color: #666;">If selected, you will receive an offer letter from our
-                            admissions team.</p>
+                        <h4 style="color: #A91D25; margin-bottom: 10px;">Receive the offer letter post shortlist</h4>
+                        <p style="font-size: 13px; color: #666;">There are many variations of passages of Lorem Ipsum
+                            available.</p>
                         <span class="step-number">2</span>
                     </div>
                     <div class="step-card">
                         <span class="step-header">Step : 3</span>
-                        <h4>Enroll & Start</h4>
-                        <p style="font-size: 13px; color: #666;">Pay the admission fee and start your learning journey.
-                        </p>
+                        <h4 style="color: #A91D25; margin-bottom: 10px;">Block your seat & complete the payment process
+                        </h4>
+                        <p style="font-size: 13px; color: #666;">There are many variations of passages of Lorem Ipsum
+                            available.</p>
                         <span class="step-number">3</span>
                     </div>
                 </div>
@@ -215,9 +218,17 @@
         <section class="cert-section" data-aos="fade-up">
             <div class="container">
                 <h2>Certification</h2>
-                <p>Earn valuable credentials and recognition</p>
-                <img src="https://images.unsplash.com/photo-1589330694653-4a8b243aaf96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    class="cert-img" alt="Certificate Sample">
+                <p style="color: #F49E25; font-weight: 600; margin-bottom: 30px;">Earn valuable credentials and
+                    recognition</p>
+                <div style="display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                    <img src="https://images.unsplash.com/photo-1589330694653-4a8b243aaf96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="cert-img" style="margin: 0; max-width: 500px;" alt="Certificate Sample">
+                    <div style="max-width: 400px; text-align: left;">
+                        <p style="font-size: 14px; line-height: 1.6;">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form, by injected humour,
+                            or randomised words which don't look even slightly believable.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -262,7 +273,32 @@
         style="position: fixed; bottom: 30px; right: 30px; z-index: 999; display: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 24px; padding: 0;">↑</button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/course-data.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const courseId = params.get('id');
+
+            if (courseId && courses[courseId]) {
+                const course = courses[courseId];
+                document.title = `${course.title} - Sahaara Educational Services`;
+                document.getElementById('courseTitle').textContent = course.title;
+                document.getElementById('courseInstitute').textContent = course.institute;
+                document.getElementById('courseStartDate').textContent = course.startDate;
+                document.getElementById('courseDuration').textContent = course.duration;
+                document.getElementById('courseEnrolled').textContent = course.enrolled;
+                document.getElementById('courseImage').src = course.image;
+                document.getElementById('courseBreadcrumbs').textContent = course.breadcrumbs;
+                document.getElementById('courseOverview').textContent = course.overview;
+                document.getElementById('courseEligibility').textContent = course.eligibility;
+            } else {
+                // Default or Error state - could redirect or show a generic message
+                // For now, we'll leave the placeholders or load a default
+                console.log('Course ID not found or invalid');
+            }
+        });
+    </script>
 </body>
 
 </html>
