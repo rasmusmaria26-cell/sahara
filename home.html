@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahaara Educational Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: #333;
+            line-height: 1.5;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Variables */
+        :root {
+            --primary-red: #A91D25;
+            --primary-yellow: #F49E25;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+            --white: #ffffff;
+            --bg-light: #f9f9f9;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #e08b1f;
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary-red);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+            background: transparent;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+        }
+
+        /* Top Notification Bar */
+        .top-bar {
+            background-color: #8B1D24;
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+            position: relative;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .top-bar .btn-xs {
+            background: white;
+            color: #8B1D24;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .close-top-bar {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-red);
+            line-height: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            font-size: 10px;
+            color: var(--primary-yellow);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-red);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-buttons .btn {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-color: var(--primary-red);
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 100px;
+            overflow: hidden;
+        }
+
+        /* The curved background effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: #fff;
+            /* Or image background */
+            border-top-left-radius: 200px;
+            z-index: 0;
+            display: none;
+            /* Complex to do exactly with CSS only without image, simplifying layout */
+        }
+
+        /* Alternative Hero Layout matching image */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-left {
+            flex: 1;
+            padding-right: 50px;
+            padding-bottom: 50px;
+        }
+
+        .hero-right {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-bg-curve {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: var(--primary-red);
+            z-index: -1;
+            border-bottom-right-radius: 200px;
+            width: 70%;
+            /* Adjust width to create the curve effect */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 450px;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            z-index: 2;
+            border-top-left-radius: 200px;
+            overflow: hidden;
+            box-shadow: -20px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .play-btn {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-red);
+            margin-left: 15px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Advantages */
+        .advantages {
+            padding: 80px 0;
+        }
+
+        .adv-container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .adv-card {
+            background: #EBCB2E;
+            padding: 40px;
+            border-radius: 30px;
+            flex: 1;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(235, 203, 46, 0.3);
+        }
+
+        /* Pencil decoration simulation */
+        .adv-card::before {
+            content: '✏️';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.2;
+            right: -20px;
+            bottom: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .adv-text {
+            flex: 1.5;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .stat-blob {
+            background: var(--primary-yellow);
+            flex: 1;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            border-radius: 65% 35% 56% 44% / 46% 30% 70% 54%;
+            /* Organic blob shape */
+            transition: transform 0.3s ease;
+        }
+
+        .stat-blob:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-blob:nth-child(2) {
+            background: #F49E25;
+            border-radius: 36% 64% 33% 67% / 61% 39% 61% 39%;
+        }
+
+        .stat-blob:nth-child(3) {
+            background: #E08B1F;
+            border-radius: 65% 35% 33% 67% / 46% 30% 70% 54%;
+        }
+
+        .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Partners */
+        .partners {
+            background: #8B1D24;
+            padding: 30px 0;
+            color: white;
+        }
+
+        .partners-header {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            opacity: 0.8;
+        }
+
+        /* Courses */
+        .courses {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .course-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            background: white;
+            border: 1px solid #eee;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-pill.active,
+        .filter-pill:hover {
+            background: var(--primary-yellow);
+            color: white;
+            border-color: var(--primary-yellow);
+        }
+
+        .category-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .course-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .course-uni {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .course-rating {
+            color: #FFD700;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .course-footer {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .course-footer .btn {
+            flex: 1;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        /* Team */
+        .team {
+            padding: 80px 0;
+            background: #A91D25;
+            color: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-info-card {
+            background: #F49E25;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .team-member-card {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .team-member-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Graduates */
+        .graduates {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .grad-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        /* Collaborate */
+        .collaborate {
+            background: #8B1D24;
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDMyMCI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1IiBkPSJNMCA5Nkw0OCA4NS4zQzk2IDc1IDE5MiA1MyAyODggNTguN0MzODQgNjQgNDgwIDk2IDU3NiAxMTJDNjcyIDEyOCA3NjggMTI4IDg2NCAxMTJDOTYwIDk2IDEwNTYgNjQgMTE1MiA1OC43QzEyNDggNTMgMTM0NCA3NSAxMzkyIDg1LjNMMTQ0MCA5NkwxNDQwIDMyMEwxMzkyIDMyMEMxMzQ0IDMyMCAxMjQ4IDMyMCAxMTUyIDMyMEMxMDU2IDMyMCA5NjAgMzIwIDg2NCAzMjBDNzY4IDMyMCA2NzIgMzIwIDU3NiAzMjBDNDgwIDMyMCAzODQgMzIwIDI4OCAzMjBDMTkyIDMyMCA5NiAzMjAgNDggMzIwTDAgMzIwWiI+PC9wYXRoPjwvc3ZnPg==');
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testi-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .testi-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .testi-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .testi-item.active {
+            background: #F49E25;
+            color: white;
+            box-shadow: 0 5px 15px rgba(244, 158, 37, 0.3);
+        }
+
+        .testi-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testi-content {
+            flex: 1.5;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        /* Awards */
+        .awards {
+            background: #A91D25;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .award-card {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .award-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* News */
+        .news {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .news-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .news-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Support */
+        .support {
+            background: #A91D25;
+            padding: 40px 0;
+            color: white;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .subscribe-form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-left {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .hero-img-wrapper {
+                border-top-left-radius: 50px;
+            }
+
+            .hero-bg-curve {
+                width: 100%;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 50px;
+            }
+
+            .adv-container {
+                flex-direction: column;
+            }
+
+            .stats-row {
+                flex-direction: column;
+            }
+
+            .testi-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Notification Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>20+ courses added this week. Check them out now!</span>
+            <button class="btn-xs">View Now</button>
+            <span class="close-top-bar">&times;</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                SAHAARA
+                <span>EDUCATIONAL SERVICES</span>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="home.html" style="color: var(--primary-red);">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <button class="btn btn-primary">Login</button>
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-curve"></div>
+        <div class="container hero-container">
+            <div class="hero-left">
+                <h1>Want to get an MBA in Bangalore?</h1>
+                <p>Choose from top MBA colleges that suit your needs. We help you find the best institutes with
+                    excellent placement records.</p>
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <button class="btn btn-primary">Apply Now</button>
+                    <div class="play-btn">▶</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Student">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="container">
+            <div class="adv-container">
+                <div class="adv-card">
+                    Sahaara Education<br>Advantages
+                </div>
+                <div class="adv-text">
+                    <p>We provide comprehensive guidance for MBA aspirants. From selecting the right college to
+                        understanding admission criteria, our experts are here to help you navigate the complex
+                        landscape of higher education.</p>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-blob">
+                    <span class="stat-num">3,000+</span>
+                    <span class="stat-label">Students Placed</span>
+                </div>
+                <div class="stat-blob">
+                    <span class="stat-num">12+</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-blob">
+                    <span class="stat-num">100+</span>
+                    <span class="stat-label">Partner Colleges</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="partners-header">Top ranked Education and University Partners</div>
+            <div class="partners-logos">
+                <span>⚙️ LogoIpsum</span>
+                <span>⚙️ LogoIpsum</span>
+                <span>⚙️ LogoIpsum</span>
+                <span>⚙️ LogoIpsum</span>
+                <span>⚙️ LogoIpsum</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses">
+        <div class="container">
+            <h2 class="section-title">All Courses of Sahaara Educational Service</h2>
+
+            <div class="course-filters">
+                <button class="filter-pill active">All Courses</button>
+                <button class="filter-pill">Management</button>
+                <button class="filter-pill">Engineering</button>
+                <button class="filter-pill">Medical</button>
+                <button class="filter-pill">Arts</button>
+            </div>
+
+            <div class="category-header">
+                <span>Management (45)</span>
+                <a href="courses.html" class="btn btn-primary" style="padding: 5px 15px; font-size: 12px;">View All</a>
+            </div>
+
+            <div class="course-grid">
+                <!-- Card 1 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        class="course-img" alt="Course">
+                    <div class="course-body">
+                        <h3 class="course-title">MBA in International Business</h3>
+                        <div class="course-uni">🏛️ Bangalore University</div>
+                        <div class="course-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                        <div class="course-footer">
+                            <a href="course-detail.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        class="course-img" alt="Course">
+                    <div class="course-body">
+                        <h3 class="course-title">PGDM in Marketing</h3>
+                        <div class="course-uni">🏛️ Alliance University</div>
+                        <div class="course-rating">⭐⭐⭐⭐ (4.5)</div>
+                        <div class="course-footer">
+                            <a href="course-detail.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        class="course-img" alt="Course">
+                    <div class="course-body">
+                        <h3 class="course-title">Executive MBA</h3>
+                        <div class="course-uni">🏛️ Jain University</div>
+                        <div class="course-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="course-footer">
+                            <a href="course-detail.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="courses.html" class="btn btn-primary" style="padding: 12px 40px;">Explore All Categories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Meet Our Professional Team</h2>
+            <div class="team-grid">
+                <div class="team-info-card">
+                    <h3 style="font-size: 24px; margin-bottom: 10px;">Brandon E. Mariano</h3>
+                    <p style="opacity: 0.9;">Senior Professor and Career Counselor with 15+ years of experience.</p>
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <span>🔵</span><span>🔴</span><span>🟡</span>
+                    </div>
+                </div>
+                <div class="team-member-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        alt="Team">
+                </div>
+                <div class="team-member-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        alt="Team">
+                </div>
+                <div class="team-member-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                        alt="Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graduates Employed By -->
+    <section class="graduates">
+        <div class="container">
+            <h3 style="color: #666; font-weight: 600;">Our graduates are employed by</h3>
+            <div class="grad-logos">
+                <span style="font-size: 24px; font-weight: 800;">VISA</span>
+                <span style="font-size: 24px; font-weight: 800;">Google</span>
+                <span style="font-size: 24px; font-weight: 800;">Amazon</span>
+                <span style="font-size: 24px; font-weight: 800;">Microsoft</span>
+                <span style="font-size: 24px; font-weight: 800;">Flipkart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborate -->
+    <section class="collaborate">
+        <div class="container">
+            <h2 style="font-size: 32px; margin-bottom: 20px;">Collaborate with us to enhance your expertise in your
+                professional field.</h2>
+            <button class="btn btn-white">Join as Mentor</button>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories of our accomplished Alumni</h2>
+            <div class="testi-container">
+                <div class="testi-list">
+                    <div class="testi-item active">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <div>
+                            <h4 style="margin: 0;">James Wilson</h4>
+                            <small>Graphic Designer</small>
+                        </div>
+                    </div>
+                    <div class="testi-item">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <div>
+                            <h4 style="margin: 0;">Anita Roy</h4>
+                            <small>Web Developer</small>
+                        </div>
+                    </div>
+                    <div class="testi-item">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <div>
+                            <h4 style="margin: 0;">Robert Fox</h4>
+                            <small>Product Manager</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-content">
+                    <div style="color: #F49E25; font-size: 24px; margin-bottom: 10px;">★★★★★</div>
+                    <h3 style="margin-bottom: 15px;">"It was a great and enjoyable experience."</h3>
+                    <p style="color: #666; line-height: 1.8;">"Sahaara Educational Services helped me find the perfect
+                        college for my MBA. The counselors were extremely knowledgeable and guided me through every step
+                        of the admission process. I am now placed in a top MNC!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards -->
+    <section class="awards">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Recognition and Achievements</h2>
+            <p style="text-align: center; margin-bottom: 40px; opacity: 0.9;">Being the largest higher educational
+                services company in India, we have received numerous prestigious awards.</p>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        class="award-img" alt="Award">
+                    <h4>Best Award</h4>
+                    <small>2017</small>
+                </div>
+                <div class="award-card">
+                    <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        class="award-img" alt="Award">
+                    <h4>Innovation Award</h4>
+                    <small>2018</small>
+                </div>
+                <div class="award-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        class="award-img" alt="Award">
+                    <h4>Trend Award</h4>
+                    <small>2019</small>
+                </div>
+                <div class="award-card">
+                    <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        class="award-img" alt="Award">
+                    <h4>Excellence Award</h4>
+                    <small>2020</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News -->
+    <section class="news">
+        <div class="container">
+            <h2 class="section-title">Sahaara Educational Services in the NEWS</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h4 style="color: var(--primary-red); margin-bottom: 15px;">The Economic Times</h4>
+                    <p style="font-size: 13px; color: #666;">"Sahaara is revolutionizing the way students select their
+                        higher education paths..."</p>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Read Article</button>
+                </div>
+                <div class="news-card">
+                    <h4 style="color: var(--primary-red); margin-bottom: 15px;">Times of India</h4>
+                    <p style="font-size: 13px; color: #666;">"Top consultancy firm expands its operations to help more
+                        students..."</p>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Read Article</button>
+                </div>
+                <div class="news-card">
+                    <h4 style="color: var(--primary-red); margin-bottom: 15px;">Education World</h4>
+                    <p style="font-size: 13px; color: #666;">"Award-winning services that put students first..."</p>
+                    <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Read Article</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="support">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">Sahaara Educational Services Support</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">Support for learners. For questions, feedback, and assistance
+                available around the clock for our offerings.</p>
+            <button class="btn btn-white">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        SAHAARA
+                        <span>EDUCATIONAL SERVICES</span>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">Empowering Minds, Inspiring Futures. Your trusted partner
+                        in higher education.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscribe for More</h4>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="text-align: center; border-top: 1px solid #eee; padding-top: 20px; font-size: 13px; color: #999;">
+                &copy; 2024 Sahaara Educational Services. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
